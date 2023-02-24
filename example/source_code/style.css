@@ -1,0 +1,49 @@
+:root {
+  --bg-color: hsl(323 21% 16%);
+  --button-color: hsl(317 100% 54%)
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg-color);
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+
+button {
+  position: relative;
+  font-size: 3em;
+  padding: .5em 1em;
+  background: transparent;
+  color: var(--button-color);
+  border: 4px solid var(--button-color);
+  border-radius: .3em;
+  text-shadow: 0 0 5px var(--button-color);
+  box-shadow: 0 0 30px 5px var(--button-color);
+  transition: .2s;
+}
+
+button:hover {
+  background: var(--button-color);
+  color: black;
+  cursor: pointer;
+}
+
+button::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: var(--button-color);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  transform: perspective(1em) rotateX(30deg) scaleY(.5);
+  filter: blur(1em);
+  pointer-events: none;
+}

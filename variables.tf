@@ -26,3 +26,15 @@ variable "s3_acl" {
   description = "ACL for S3 object"
   default     = "public-read"
 }
+
+variable "domain_name" {
+  type        = string
+  description = "Domain Name for the s3 website"
+  default     = null
+}
+
+variable "sub_domain_name" {
+  type        = string
+  description = "Sub Domain Name for the s3 website"
+  default     = null
+}
