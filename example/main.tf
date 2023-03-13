@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 locals {
-  project_name     = "example-name"
+  project_name     = "project-name"
   source_code_path = "./source_code"
   index_document   = "index.html"
 }
@@ -16,12 +16,12 @@ resource "random_string" "random" {
 
 module "website" {
   source                = "app.terraform.io/legendary-org/s3-website/aws"
-  version               = "0.0.2"
+  version               = "0.0.3"
   bucketName            = "${local.project_name}-${resource.random_string.random.id}"
   source_code_directory = local.source_code_path
   index_document        = local.index_document
-#   sub_domain_name       = "your-sub-domain"
-#   domain_name           = "your-domain"
+  sub_domain_name       = "dev"
+  domain_name           = "example.com"
 }
 
 output "website_url" {
